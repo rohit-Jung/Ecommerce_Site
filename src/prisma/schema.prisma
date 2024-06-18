@@ -15,6 +15,7 @@ model User {
   image         String?
   accounts      Account[]
   orders        Order[]
+  reviews       Review[]
   hashedPassword String?
   role  Role @default(USER)
  
@@ -65,6 +66,30 @@ model Order {
   
 }
 
+model Product {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  name          String 
+  description   String
+  price         Float
+  brand         String
+  category      String
+  inStock       Boolean
+  images         Image[]
+  reviews       Review[]
+}
+
+model Review {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String @db.ObjectId
+  productId     String @db.ObjectId
+  rating        Int
+  comment       String
+  createdAt     DateTime @default(now())
+
+
+  product Product @relation(fields: [productId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
 type CartProductType {
   id            String
   name          String
