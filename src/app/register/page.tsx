@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, FormWrap, RegisterForm } from "../Components";
+import { Container, FormWrap, RegisterForm } from "@/components";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 
 const Register = async () => {

@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, FormWrap } from "../Components";
-import LoginForm from "../Components/Form/LoginForm";
+import { Container, FormWrap } from "@/components";
+import LoginForm from "@/components/Form/LoginForm";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 
 const Login = async () => {

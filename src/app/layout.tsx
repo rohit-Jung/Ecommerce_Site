@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { Footer, NavBar } from "./Components";
+import { Footer, NavBar } from "@/components";
 import { CartProvider } from "@/providers/CartProvider";
 import { Toaster } from "react-hot-toast";
 
@@ -12,11 +12,12 @@ export const metadata: Metadata = {
   description: "Ecommerce App made by Next",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body className={`${poppins.className} text-slate-700`}>

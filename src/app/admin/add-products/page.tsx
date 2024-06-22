@@ -4,7 +4,7 @@ import {
   Container,
   FormWrap,
   NullData,
-} from "@/app/Components";
+} from "@/components";
 import React from "react";
 
 const AddProducts = async () => {

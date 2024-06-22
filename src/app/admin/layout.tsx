@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import React from "react";
-import { AdminNav } from "../Components";
+import { AdminNav } from "@/components";
 
 export const metadata: Metadata = {
   title: "E-commerce App Admin",

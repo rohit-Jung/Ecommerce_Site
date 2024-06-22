@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Container, HomeBanner, ProductCard } from "./Components";
+import { Container, HomeBanner, ProductCard } from "@/components";
 import { products } from "@/utils/products";
 
 export default function Home() {

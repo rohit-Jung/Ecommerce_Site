@@ -1,4 +1,4 @@
-import { Container, ListRating, ProductDetails } from "@/app/Components";
+import { Container, ListRating, ProductDetails } from "@/components";
 import { products } from "@/utils/products";
 import React from "react";
 interface IParams {

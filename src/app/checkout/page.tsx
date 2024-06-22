@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckoutClient, Container, FormWrap } from "../Components";
+import { CheckoutClient, Container, FormWrap } from "@/components";
 
 const Checkout = () => {
   return (

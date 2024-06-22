@@ -1,5 +1,5 @@
 import React from "react";
-import { CartClient, Container } from "../Components";
+import { CartClient, Container } from "@/components";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 
 const CartPage = async () => {

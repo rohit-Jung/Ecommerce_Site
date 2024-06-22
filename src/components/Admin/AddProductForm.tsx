@@ -79,7 +79,7 @@ const AddProductForm = () => {
     }
 
     const handleImageUploads = async () => {
-      toast("Creating product... Please wait...");
+      toast("Creating product, Please wait !");
 
       try {
         for (const item of data.images) {
@@ -278,7 +278,7 @@ const AddProductForm = () => {
         <div className="grid grid-cols-2 gap-3">
           {colors.map((item, index) => {
             return (
-              <>
+              <div key={index}>
                 <SelectColor
                   key={index}
                   item={item}
@@ -286,7 +286,7 @@ const AddProductForm = () => {
                   removeImageFromState={removeImageFromState}
                   isProductCreated={isProductCreated}
                 />
-              </>
+              </div>
             );
           })}
         </div>
