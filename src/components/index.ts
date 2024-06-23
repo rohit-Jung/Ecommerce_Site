@@ -13,6 +13,7 @@ import AdminNav from "./Admin/AdminNav";
 import AddProductForm from "./Admin/AddProductForm";
 import NullData from "./NullData";
 import ManageProductClient from "./Admin/ManageProductClient";
+import ManageOrderClient from "./Admin/ManageOrderClient";
 
 export {
   NavBar,
@@ -29,5 +30,6 @@ export {
   AdminNav,
   AddProductForm,
   NullData,
-  ManageProductClient
+  ManageProductClient,
+  ManageOrderClient,
 };
