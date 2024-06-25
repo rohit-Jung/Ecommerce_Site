@@ -35,8 +35,6 @@ export const CartContextProvider = (props: Props) => {
   const [cartTotalPrice, setCartTotalPrice] = useState(0);
   const [paymentIntent, setPaymentIntent] = useState<string | null>(null);
 
-  console.log("Amount", cartTotalPrice);
-  console.log("Qty", cartTotalQty);
 
   useEffect(() => {
     console.log(localStorage.getItem("CartItems"));

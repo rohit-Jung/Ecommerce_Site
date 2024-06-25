@@ -17,7 +17,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import moment from "moment";
 
-interface ManageOrderClientProps {
+interface OrderClientProps {
   orders: ExtendedOrder[];
 }
 
@@ -25,7 +25,7 @@ type ExtendedOrder = Order & {
   user: User;
 };
 
-const ManageOrderClient: FC<ManageOrderClientProps> = ({ orders }) => {
+const OrderClient: FC<OrderClientProps> = ({ orders }) => {
   const router = useRouter();
   let rows: any[] = [];
 
@@ -40,8 +40,8 @@ const ManageOrderClient: FC<ManageOrderClientProps> = ({ orders }) => {
         deliveryStatus: order.deliveryStatus,
       };
     });
-    
   }
+
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 220 },
     { field: "customer", headerName: "Customer Name", width: 130 },
@@ -127,18 +127,6 @@ const ManageOrderClient: FC<ManageOrderClientProps> = ({ orders }) => {
         return (
           <div className="flex justify-between gap-2 w-full h-full items-center pr-3">
             <ActionBtn
-              icon={MdDeliveryDining}
-              onClick={(e) => {
-                handleDispatch(params.row.id);
-              }}
-            />
-            <ActionBtn
-              icon={MdDone}
-              onClick={(e) => {
-                handleDeliver(params.row.id);
-              }}
-            />
-            <ActionBtn
               icon={MdRemoveRedEye}
               onClick={(e) => {
                 router.push(`/order/${params.row.id}`);
@@ -150,43 +138,11 @@ const ManageOrderClient: FC<ManageOrderClientProps> = ({ orders }) => {
     },
   ];
 
-  const handleDispatch = useCallback(async (id: string) => {
-    axios
-      .put("/api/order", {
-        id,
-        deliveryStatus: "dispatched",
-      })
-      .then((response) => {
-        toast.success("Order dispatched successfully");
-        router.refresh();
-      })
-      .catch((error) => {
-        toast.error("Oops! Error dispatching the order");
-        console.log("Error dispatching the order", error);
-      });
-  }, []);
-
-  const handleDeliver = useCallback(async (id: string) => {
-    axios
-      .put("/api/order", {
-        id,
-        deliveryStatus: "delivered",
-      })
-      .then((response) => {
-        toast.success("Order delivered successfully");
-        router.refresh();
-      })
-      .catch((error) => {
-        toast.error("Oops! Error delivering the order");
-        console.log("Error delivering the order", error);
-      });
-  }, []);
-
   return (
     <>
-      <div className="max-w-[1150px] m-auto text-xl">
+      <div className="max-w-[1030px] m-auto text-xl">
         <div className="mb-4 mt-4">
-          <Heading title="Manage orders" center />
+          <Heading title="Your orders" center />
         </div>
         <div style={{ height: 600, width: "100%" }}>
           <DataGrid
@@ -207,4 +163,4 @@ const ManageOrderClient: FC<ManageOrderClientProps> = ({ orders }) => {
   );
 };
 
-export default ManageOrderClient;
+export default OrderClient;

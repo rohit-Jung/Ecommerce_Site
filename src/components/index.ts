@@ -14,7 +14,11 @@ import AddProductForm from "./Admin/AddProductForm";
 import NullData from "./NullData";
 import ManageProductClient from "./Admin/ManageProductClient";
 import ManageOrderClient from "./Admin/ManageOrderClient";
-import OrderDetails from "./order/OrderDetails";
+import OrderDetails from "./Order/OrderDetails";
+import OrderClient from "./Order/OrderClient";
+import AddRating from "./Products/AddRating";
+import Summary from "./Admin/Summary";
+import BarGraph from "./Admin/BarGraph";
 
 export {
   NavBar,
@@ -33,5 +37,9 @@ export {
   NullData,
   ManageProductClient,
   ManageOrderClient,
-  OrderDetails
+  OrderDetails,
+  OrderClient,
+  AddRating,
+  Summary,
+  BarGraph
 };

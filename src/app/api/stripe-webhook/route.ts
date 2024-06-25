@@ -5,8 +5,8 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prismadb";
 import { Address } from "@prisma/client";
 
+export const runtime = "edge";
 export const config = {
-  runtime: "edge",
   api: {
     bodyParser: false,
   },

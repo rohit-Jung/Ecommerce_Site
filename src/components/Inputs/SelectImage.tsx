@@ -10,11 +10,14 @@ interface SelectImageProps {
 }
 
 const SelectImage: FC<SelectImageProps> = ({ item, handleFileChange }) => {
-  const onDrop = useCallback((acceptedFile: File[]) => {
-    if (acceptedFile.length > 0) {
-      handleFileChange(acceptedFile[0]);
-    }
-  }, []);
+  const onDrop = useCallback(
+    (acceptedFile: File[]) => {
+      if (acceptedFile.length > 0) {
+        handleFileChange(acceptedFile[0]);
+      }
+    },
+    [handleFileChange]
+  );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,

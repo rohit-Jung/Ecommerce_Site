@@ -20,8 +20,6 @@ const CheckoutClient = () => {
   const [clientSecret, setClientSecret] = useState("");
   const [isPaymentSuccess, setIsPaymentSuccess] = useState(false);
 
-  console.log("Payment Intent: ", paymentIntent);
-  console.log("Client Secret: ", clientSecret);
 
   const router = useRouter();
 

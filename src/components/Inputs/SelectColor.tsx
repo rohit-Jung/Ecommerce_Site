@@ -35,12 +35,12 @@ const SelectColor: FC<SelectColorProps> = ({
       setFile(null);
       removeImageFromState(item);
     }
-  }, []);
+  }, [item, removeImageFromState]);
 
   const handleFileChange = useCallback((value: File) => {
     setFile(value);
     addImageToState({ ...item, image: value });
-  }, []);
+  }, [item, addImageToState]);
 
   return (
     <>

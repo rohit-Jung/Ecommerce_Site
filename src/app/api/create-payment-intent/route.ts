@@ -17,14 +17,13 @@ const calculateOrderAmount = (items: CartProductType[]) => {
     return acc + itemTotal;
   }, 0);
 
-  const price = Math.floor(totalPrice * 100);
-  return price;
+  return totalPrice;
 };
 
 export async function POST(req: Request) {
   try {
     const currentUser = await getCurrentUser();
-  
+
     if (!currentUser) {
       return NextResponse.json(
         {
@@ -35,26 +34,26 @@ export async function POST(req: Request) {
         }
       );
     }
-  
+
     const { items, payment, payment_intent_id } = await req.json();
-  
-    const totalPrice = calculateOrderAmount(items);
-  
+
+    const totalPrice = Math.round(calculateOrderAmount(items) * 100);
+
     const orderData = {
       user: { connect: { id: currentUser.id } },
-      amount: totalPrice,
+      amount: totalPrice / 100,
       currency: "usd",
       status: "pending",
       deliveryStatus: "pending",
       paymentIntentId: payment_intent_id,
       products: items,
     };
-  
+
     if (payment_intent_id) {
       const currrentIntent = await stripe.paymentIntents.retrieve(
         payment_intent_id
       );
-  
+
       if (currrentIntent) {
         const updatedIntent = await stripe.paymentIntents.update(
           payment_intent_id,
@@ -62,7 +61,7 @@ export async function POST(req: Request) {
             amount: totalPrice,
           }
         );
-  
+
         //update the order
         const [existing_order, update_order] = await Promise.all([
           prisma.order.findFirst({
@@ -75,19 +74,19 @@ export async function POST(req: Request) {
               paymentIntentId: payment_intent_id,
             },
             data: {
-              amount: totalPrice,
+              amount: totalPrice / 100,
               products: items,
             },
           }),
         ]);
-  
+
         if (!existing_order) {
           return NextResponse.json(
             { error: "Invalid Payment intent" },
             { status: 400 }
           );
         }
-  
+
         return NextResponse.json({
           paymentIntent: updatedIntent,
         });
@@ -101,11 +100,11 @@ export async function POST(req: Request) {
       });
       //create order
       orderData.paymentIntentId = paymentIntent.id;
-  
+
       await prisma.order.create({
         data: orderData,
       });
-  
+
       return NextResponse.json({
         paymentIntent,
       });
@@ -118,6 +117,5 @@ export async function POST(req: Request) {
       },
       { status: 500 }
     );
-  }
   }
 }

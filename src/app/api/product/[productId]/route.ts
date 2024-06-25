@@ -7,10 +7,7 @@ export async function DELETE(
   { params }: { params: { productId: string } }
 ) {
   try {
-    console.log("params id", params);
-
     const { productId } = params;
-    console.log("Product id", productId);
     const currentUser = await getCurrentUser();
 
     if (!currentUser || currentUser.role !== "ADMIN") {

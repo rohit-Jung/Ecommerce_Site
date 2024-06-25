@@ -5,9 +5,9 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const { name, email, password } = await request.json();
-  
+
     const hashedPassword = await bcrypt.hash(password, 10);
-  
+
     const user = await prisma.user.create({
       data: {
         name,
@@ -15,14 +15,14 @@ export async function POST(request: Request) {
         hashedPassword,
       },
     });
-  
+
     if (!user) {
       return NextResponse.json({
         status: 400,
         message: "Something went wrong",
       });
     }
-  
+
     return NextResponse.json({
       status: 200,
       message: "User created successfully",
@@ -36,6 +36,5 @@ export async function POST(request: Request) {
       },
       { status: 500 }
     );
-  }
   }
 }
