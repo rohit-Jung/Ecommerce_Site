@@ -57,6 +57,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ currentUser }) => {
       router.push("/cart");
       router.refresh();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -94,7 +95,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ currentUser }) => {
         onClick={handleSubmit(onSubmit)}
       />
       <p className="text-sm">
-        Don't have an account?{" "}
+        Don &apos; t have an account?{" "}
         <Link href="/register" className=" underline text-slate-500">
           Sign up
         </Link>

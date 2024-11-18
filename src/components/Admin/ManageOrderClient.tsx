@@ -164,6 +164,7 @@ const ManageOrderClient: FC<ManageOrderClientProps> = ({ orders }) => {
         toast.error("Oops! Error dispatching the order");
         console.log("Error dispatching the order", error);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleDeliver = useCallback(async (id: string) => {
@@ -180,6 +181,7 @@ const ManageOrderClient: FC<ManageOrderClientProps> = ({ orders }) => {
         toast.error("Oops! Error delivering the order");
         console.log("Error delivering the order", error);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

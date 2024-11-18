@@ -1,4 +1,4 @@
-import { CartProductType } from "@/app/Components/Products/ProductDetails";
+import { CartProductType } from "@/components/Products/ProductDetails";
 import {
   createContext,
   useCallback,
@@ -159,6 +159,7 @@ export const CartContextProvider = (props: Props) => {
     setCartTotalQty(0);
     localStorage.removeItem("CartItems");
     toast.success("Cart cleared");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cartProducts]);
 
   const handleSetPaymentIntent = useCallback(

@@ -65,6 +65,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ currentUser }) => {
       router.push("/");
       router.refresh();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

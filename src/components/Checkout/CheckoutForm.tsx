@@ -36,6 +36,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
     }
 
     handleSetPaymentSuccess(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stripe]);
 
   const handleSubmit = async (e: React.FormEvent) => {

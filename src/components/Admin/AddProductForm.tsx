@@ -61,6 +61,7 @@ const AddProductForm = () => {
 
   useEffect(() => {
     setCustomValue("images", images);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [images]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data: FieldValues) => {
@@ -168,6 +169,7 @@ const AddProductForm = () => {
       setImages(null);
       setIsProductCreated(false);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isProductCreated]);
 
   const category = watch("category");

@@ -129,6 +129,7 @@ const ManageProductClient: FC<ManageProductClientProps> = ({ products }) => {
           console.log("Error toggling the status", error);
         });
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
@@ -161,6 +162,7 @@ const ManageProductClient: FC<ManageProductClientProps> = ({ products }) => {
         toast.error("Oops! Error deleting the product");
         console.log("Error deleting the product", error);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

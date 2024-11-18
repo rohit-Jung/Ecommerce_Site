@@ -65,6 +65,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         setIsProductInCart(true);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cartProducts]);
 
   const productRating =
@@ -75,6 +76,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     (value: SelectedImgType) => {
       setCartProduct((prev) => ({ ...prev, selectedImg: value }));
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [cartProduct.selectedImg]
   );
 

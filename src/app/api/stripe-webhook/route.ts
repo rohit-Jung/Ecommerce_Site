@@ -6,11 +6,11 @@ import prisma from "@/lib/prismadb";
 import { Address } from "@prisma/client";
 
 export const runtime = "edge";
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// export const config = {
+//   api: {
+//     bodyParser: false,
+//   },
+// };
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: "2024-04-10",

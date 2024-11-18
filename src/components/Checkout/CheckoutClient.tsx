@@ -59,6 +59,7 @@ const CheckoutClient = () => {
           toast.error("Something went wrong");
         });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cartProducts, paymentIntent]);
 
   const options: StripeElementsOptions = {
